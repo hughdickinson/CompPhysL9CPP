@@ -20,7 +20,7 @@
  */
 class StatsCalculator {
     
-    /** An STL vector of double precision values to store parsed numeric
+    /** \brief An STL vector of double precision values to store parsed numeric
      * values.
      */
     std::vector<double> numericValues;
