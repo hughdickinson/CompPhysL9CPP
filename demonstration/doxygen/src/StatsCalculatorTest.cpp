@@ -12,10 +12,12 @@
  * to be invoked with two command line arguments and will output an error message
  * if the incorrect number of command line arguments is not supplied.
  *
- * \param The first command line argument, available as argv[1] is expected to be the
- * path of an input file containing a white-space separated list of numeric values.
+ * \param argc - The number of command line tokens including the executable name 
+ * and command line arguments.
  *
- * \param The second command line argument, available as argv[2] is expected to be the
+ * \param argv - The \b first command line argument, available as argv[1] is expected to be the
+ * path of an input file containing a white-space separated list of numeric values.
+ * The \b second command line argument, available as argv[2] is expected to be the
  * path to which a file containing a statistical summary of the numeric values
  * provided by the input file.
  *
