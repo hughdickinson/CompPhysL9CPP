@@ -1,0 +1,88 @@
+# LECTURE 9: AUTOMATIC CODE DOCUMENTATION USING DOXYGEN
+# =====================================================
+#
+# The doxygen utility enables automatic documentation generation
+# using information extracted from specially formatted comments
+# within your source code.
+#
+# To enable basic doxygen support the required modifications to
+# existing code comments are minimal.
+#
+# Multiline comment blocks can be exposed for extraction by the
+# doxygen utility by adding an extra "*" character to the opening
+# "/*" diglyph, forming the triglyph "/**".
+#
+# Single line comments can be exposed for extraction by the
+# doxygen utility by adding an extra "/" character to the opening
+# "//" diglyph, forming the triglyph "///".
+#
+# The doxygen utility is also able to interpret several special
+# tokens within your comments that enable more advanced formatting
+# of the documentation it generates.
+#
+# Specific entities within the source code can be explicitly
+# identified. For example the "\class" token at the beginning of a
+# comment specifies that the subsequent token defines the name of
+# the class and the remainder of the comment provides an overall
+# class description.
+#
+# Another particularly useful token is "\brief" which can be used
+# to provide an abbreviated description for programatic entities.
+#
+# The "\param" token is used to specify that subsequent text
+# describes the requirements or interpretation of a function or
+# method parameter.
+#
+# Other tokens can be used to control the textual formatting of the
+# documentation. For example, the "\b" token specifies that the
+# subsequent word should be emboldened.
+#
+# Documentation can LaTeX formatted equations, which are identified
+# within comments by enclosing them between "\f" tokens.
+#
+# A useful reference, listing the most commonly used comment tokens
+# that are understood by doxygen can be obtained from:
+# http://www.digilife.be/quickreferences/QRC/Doxygen%20Quick%20Reference.pdf
+
+# INSTALLING DOXYGEN:
+# ===================
+#
+# If you have not already done so, add the doxygen utility to your
+# VirtualBox Ubuntu Linux installation using:
+
+sudo apt-get install doxygen
+
+# GENERATING A TEMPLATE CONFIGURATION FILE:
+# =========================================
+#
+# Operation of the doxygen utility is customized using a configuration
+# file. To generate a template configuration file called "doxygen.config",
+# invoke:
+
+doxygen -g doxygen.config
+
+# Inspect the contents of the template configuration file.
+
+emacs doxygen.config &
+
+# The file is very long and enables numerous features to be enabled
+# and customized. This demonstration focusses on the generation of
+# HTML documentation but information about the remaining options is
+# available from:
+# http://www.stack.nl/~dimitri/doxygen/
+#
+
+
+# MODIFYING THE SOURCE CODE COMMENTS:
+# ===================================
+#
+# To demonstrate the formatting that is required by doxygen, a model
+# implementation of the StatsCalculator class from Question 18 of the
+# Lecture 6 Homework will be used.
+#
+# Inspect the contents of the "include/StatsCalculator.h" file
+
+emacs include/StatsCalculator.h &
+
+# The file has already been modified in several places to adopt the
+# doxygen syntax. To see the 
