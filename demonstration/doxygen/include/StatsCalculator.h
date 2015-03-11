@@ -8,7 +8,8 @@
 // Include the <string> header to provide the STL std::vector type.
 #include <string>
 
-/* @@ DOXYGEN The StatsCalculator class reads a list of whitespace-separated numeric
+/** \class StatsCalculator 
+ * The StatsCalculator class reads a list of whitespace-separated numeric
  * values from a text file. It stores those values internally and supplies
  * methods to compute and return several statistical properties of those
  * numbers.
@@ -19,12 +20,12 @@
  */
 class StatsCalculator {
     
-    /* @@ DOXYGEN An STL vector of double precision values to store parsed numeric
+    /** An STL vector of double precision values to store parsed numeric
      * values.
      */
     std::vector<double> numericValues;
     
-    /* @@ DOXYGEN Private method that actually computes the sum of the stored numeric
+    /** \brief Private method that actually computes the sum of the stored numeric
      * values.
      */
     double computeSum();
@@ -77,7 +78,7 @@ public:
      */
     void printStats();
     
-    /* @@ DOXYGEN Public method that writes a summary of the statistical properties that this
+    /** \brief Public method that writes a summary of the statistical properties that this
      * class computes to a caller-specified output file.
      *
      * Requires one argument:

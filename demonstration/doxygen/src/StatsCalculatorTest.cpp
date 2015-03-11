@@ -1,4 +1,4 @@
-// @@ DOXYGEN TEST FILE for StatsCalculator class
+/// \file StatsCalculatorTest.cpp TEST FILE for StatsCalculator class
 
 // The <iostream> header is included to enable textual terminal output.
 #include <iostream>
@@ -8,30 +8,30 @@
  */
 #include "StatsCalculator.h"
 
-/* @@ DOXYGEN The main function is the entry point for the program. The program is designed
+/** The main function is the entry point for the program. The program is designed
  * to be invoked with two command line arguments and will output an error message
  * if the incorrect number of command line arguments is not supplied.
  *
- * @@ DOXYGEN The first command line argument, available as argv[1] is expected to be the
+ * \param The first command line argument, available as argv[1] is expected to be the
  * path of an input file containing a white-space separated list of numeric values.
  *
- * @@ DOXYGEN The second command line argument, available as argv[2] is expected to be the
+ * \param The second command line argument, available as argv[2] is expected to be the
  * path to which a file containing a statistical summary of the numeric values
  * provided by the input file.
  *
  * The program instantiates a StatsCalculator object and invokes its public methods
  * in order to:
  *
- * @@ DOXYGEN 1) Open the input file, parse its contents and store the numeric values in an
+ * -# Open the input file, parse its contents and store the numeric values in an
  * internal std::vector<double>.
- * @@ DOXYGEN 2) Print a statistical summary comprising the sum, mean and standard deviation
+ * -# Print a statistical summary comprising the sum, mean and standard deviation
  * of the numeric values to the terminal.
- * @@ DOXYGEN 3) Individually access each statistic and print their values to the terminal with
+ * -# Individually access each statistic and print their values to the terminal with
  * annotation.
- * @@ DOXYGEN 4) Write a statistical summary comprising the sum, mean and standard deviation
+ * -# Write a statistical summary comprising the sum, mean and standard deviation
  * of the numeric values to the user-specified output file.
  *
- * @@ DOXYGEN The program returns zero on success and 1 if an incorrect number of command line
+ * \return The program returns zero on success and 1 if an incorrect number of command line
  * arguments was provided.
  */
 int main(int argc, char * argv[]){
