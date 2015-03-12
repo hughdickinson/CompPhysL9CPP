@@ -137,11 +137,17 @@ firefox docs/html/index.html # (Exit from window or use Ctrl+C)
 #
 # Inspect and modify the contents of the "include/StatsCalculator.h",
 # "src/StatsCalculator.cpp" and "src/StatsCalculatorTest.cpp" files.
+#
 
 emacs include/StatsCalculator.h &
 emacs src/StatsCalculator.cpp &
 emacs src/StatsCalculatorTest.cpp &
 
+# One modification will entail insertion of the following LaTeX-formatted
+# equation.
+#
+# \sigma = \sqrt{\langle X^{2} \rangle - \langle X \rangle^{2}}
+#
 # Now INVOKE THE DOXYGEN UTILITY to generate some updated HTML documentation.
 
 doxygen demoDoxygen.config
