@@ -1,30 +1,35 @@
 # LECTURE 9: AUTOMATIC CODE DOCUMENTATION USING DOXYGEN
 # =====================================================
 #
-# The doxygen utility enables automatic documentation generation
-# using information extracted from specially formatted comments
+# The doxygen utility enables AUTOMATIC DOCUMENTATION GENERATION
+# using information extracted from SPECIALLY FORMATTED COMMENTS
 # within your source code.
 #
-# To enable basic doxygen support the required modifications to
-# existing code comments are minimal.
+# To enable BASIC doxygen support the required MODIFICATIONS to
+# existing code comments are MINIMAL.
 #
-# Multiline comment blocks can be exposed for extraction by the
+# MULTILINE comment blocks can be exposed for extraction by the
 # doxygen utility by adding an extra "*" character to the opening
 # "/*" diglyph, forming the triglyph "/**".
 #
-# Single line comments can be exposed for extraction by the
+# SINGLE LINE comments can be exposed for extraction by the
 # doxygen utility by adding an extra "/" character to the opening
 # "//" diglyph, forming the triglyph "///".
 #
-# The doxygen utility is also able to interpret several special
-# tokens within your comments that enable more advanced formatting
+# The doxygen utility is also able to interpret several SPECIAL
+# TOKENS within your comments that enable more ADVANCED FORMATTING
 # of the documentation it generates.
 #
-# Specific entities within the source code can be explicitly
-# identified. For example the "\class" token at the beginning of a
+# SPECIFIC ENTITIES within the source code can be EXPLICITLY
+# IDENTIFIED. For example the "\class" token at the beginning of a
 # comment specifies that the subsequent token defines the name of
 # the class and the remainder of the comment provides an overall
 # class description.
+#
+# The "\file" token is used to trigger documentation of files that
+# do not contain class or class method definitions. For example,
+# a file that only contains a main() function would not be documented
+# unless a comment containing the "\file" token is added.
 #
 # Another particularly useful token is "\brief" which can be used
 # to provide an abbreviated description for programatic entities.
@@ -32,6 +37,16 @@
 # The "\param" token is used to specify that subsequent text
 # describes the requirements or interpretation of a function or
 # method parameter.
+#
+# The "\return" token is used to specify that subsequent text
+# describes the value that is returned by a function or method under
+# various possible exit conditions.
+#
+# The "\note" token is used to specify that subsequent text
+# is particularly important and should be highligted in documentation.
+#
+# The tokens that have been introduced so far affect all subsequent text
+# until TWO SUCCESSIVE NEWLINES are encountered.
 #
 # Other tokens can be used to control the textual formatting of the
 # documentation. For example, the "\b" token specifies that the
@@ -43,6 +58,23 @@
 # A useful reference, listing the most commonly used comment tokens
 # that are understood by doxygen can be obtained from:
 # http://www.digilife.be/quickreferences/QRC/Doxygen%20Quick%20Reference.pdf
+#
+# To demonstrate the formatting that is required by doxygen, a model
+# implementation of the StatsCalculator class from Question 18 of the
+# Lecture 6 Homework will be used.
+
+# OPTIONAL: INSTALLING TEXLIVE:
+# ===================
+#
+# The doxygen utility allows MATHEMATICAL FORMULAE to be specified
+# using format expected by the LaTeX typesetting utility. To utilize
+# this functionality, a LaTeX package must be installed. If you do not
+# install LaTeX, doxygen will "gracefully" fall back and render the
+# raw LaTeX syntax in your documentation:
+#
+# The installation MAY TAKE SEVERAL HOURS and is NOT ESSENTIAL.
+
+sudo apt-get install texlive
 
 # INSTALLING DOXYGEN:
 # ===================
@@ -55,8 +87,8 @@ sudo apt-get install doxygen
 # GENERATING A TEMPLATE CONFIGURATION FILE:
 # =========================================
 #
-# Operation of the doxygen utility is customized using a configuration
-# file. To generate a template configuration file called "doxygen.config",
+# OPERATION of the doxygen utility is CUSTOMIZED using a CONFIGURATION
+# FILE. To generate a TEMPLATE configuration file called "doxygen.config",
 # invoke:
 
 doxygen -g doxygen.config
@@ -65,24 +97,56 @@ doxygen -g doxygen.config
 
 emacs doxygen.config &
 
-# The file is very long and enables numerous features to be enabled
-# and customized. This demonstration focusses on the generation of
-# HTML documentation but information about the remaining options is
-# available from:
+# The file is very long and enables NUMEROUS FEATURES TO BE ENABLED
+# AND CUSTOMIZED. The file includes detailed documentation is for all
+# available options. HTML documentation about the available options is
+# also available from:
 # http://www.stack.nl/~dimitri/doxygen/
 #
-
+# This demonstration focusses on the generation of HTML documentation
+# and only the following settings need to be modified from their default
+# values:
+#
+# PROJECT_NAME, OUTPUT_DIRECTORY, REPEAT_BRIEF, BUILTIN_STL_SUPPORT,
+# EXTRACT_PRIVATE, INPUT, FILE_PATTERNS, SOURCE_BROWSER, GENERATE_LATEX
+#
+# The "doxygen" subdirectory of the directory containing this file contains
+# APPROPRIATELY MODIFIED CONFIGURATION FILE called "demoDoxygen.config"
+# You can compare the default (generated) configuration file with the modified
+# if neccessary.
 
 # MODIFYING THE SOURCE CODE COMMENTS:
 # ===================================
 #
-# To demonstrate the formatting that is required by doxygen, a model
-# implementation of the StatsCalculator class from Question 18 of the
-# Lecture 6 Homework will be used.
+# The files comprising the implementation of the StatsCalculator
+# have ALREADY BEEN MODIFIED in several places to adopt the
+# doxygen syntax, and an INITIAL set of HTML documentation has been
+# generated. To view this initial documentation invoke
+
+firefox docs/html/index.html # (Exit from window or use Ctrl+C)
+
+# SOME METHODS HAVE NOT BEEN DOCUMENTED AND THE CLASS DOES NOT HAVE AN
+# OVERALL DESCRIPTION. Moreover the "StatsCalculatorTest.cpp" file is NOT
+# DOCUMENTED. To rectify this, several MODIFICATIONS TO THE COMMENTS within
+# "include/StatsCalculator.h", "src/StatsCalculator.cpp", and
+# "src/StatsCalculatorTest.cpp" are required. Appropriate modification points
+# have been indicated using the easily identifiable token pair "@@ DOXYGEN".
+# A set of FULLY MODIFIED source code files is stored in the "src" and 
+# "include" subdirectories of the "doxygen" subdirectory of the directory
+# containing this file.
 #
-# Inspect the contents of the "include/StatsCalculator.h" file
+# Inspect and modify the contents of the "include/StatsCalculator.h",
+# "src/StatsCalculator.cpp" and "src/StatsCalculatorTest.cpp" files.
 
 emacs include/StatsCalculator.h &
+emacs src/StatsCalculator.cpp &
+emacs src/StatsCalculatorTest.cpp &
 
-# The file has already been modified in several places to adopt the
-# doxygen syntax. To see the 
+# Now INVOKE THE DOXYGEN UTILITY to generate some updated HTML documentation.
+
+doxygen demoDoxygen.config
+
+# To view this NEW documentation invoke
+
+firefox docs/html/index.html
+
